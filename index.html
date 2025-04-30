@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Énigme Secrète</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    <div class="content">
+        <div class="container">
+            <p class="mystery-text">Entrez le mot de passe pour révéler le mystère...</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="password">Le mot de passe mystérieux :</label>
+                    <input type="password" id="password" required placeholder="Entrez le mot magique...">
+                </div>
+                <button type="submit">Dévoiler le secret</button>
+            </form>
+            <div id="error" class="error-message"></div>
+            <button id="indiceBtn" class="indice-btn">Besoin d'un indice ?</button>
+            <div id="indice" class="indice-text">
+                L'administrateur a laissé un indice : en entendant ce prénom cela me fait sourire et danser
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
