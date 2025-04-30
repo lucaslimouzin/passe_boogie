@@ -110,10 +110,28 @@ animate();
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const password = document.getElementById('password').value.toLowerCase();
+    const password = document.getElementById('password').value;
     const errorElement = document.getElementById('error');
     
-    if (password === 'élise') {
+    // Normalisation du mot de passe saisi
+    const normalizedPassword = password.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    
+    // Liste des variantes acceptées
+    const acceptedPasswords = [
+        'élise',
+        'elise',
+        'ÉLISE',
+        'ELISE',
+        'Élise',
+        'Elise'
+    ];
+    
+    // Vérification si le mot de passe normalisé correspond à l'une des variantes
+    const isPasswordValid = acceptedPasswords.some(accepted => 
+        accepted.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') === normalizedPassword
+    );
+    
+    if (isPasswordValid) {
         // Animation de transition avant la redirection
         const container = document.querySelector('.container');
         container.style.animation = 'fadeOut 0.5s ease-in-out forwards';
